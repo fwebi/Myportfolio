@@ -1,0 +1,24 @@
+[
+  {
+    "title": "RRT Management — Rapid Reliable",
+    "date": "2026-02-14",
+    "summary": "Cross-platform fleet operations app for managing trucks, loads, expenses, drivers, and driver payments.",
+    "details": "<h3>RRT Management</h3><p>Cross-platform fleet operations app built with .NET MAUI for managing trucks, loads, expenses, drivers, and driver payments.</p><ul><li>Dashboard for operational overview</li><li>Truck, load, and expense management</li><li>Driver payment tracking</li><li>Add flows for trucks, loads, expenses, payments, and drivers</li></ul><p><strong>Tech:</strong> .NET 9 / .NET MAUI, MVVM with CommunityToolkit.Mvvm, LiteDB, CommunityToolkit.Maui, Syncfusion.Maui.Toolkit.</p><div class=\"project-gallery\"><figure><img src=\"Rapid-reliable/DashboardPage.png\" alt=\"RRT dashboard overview\"><figcaption>Dashboard</figcaption></figure><figure><img src=\"Rapid-reliable/TrucksPage.png\" alt=\"Trucks management screen\"><figcaption>Trucks</figcaption></figure><figure><img src=\"Rapid-reliable/LoadsPage.png\" alt=\"Loads management screen\"><figcaption>Loads</figcaption></figure><figure><img src=\"Rapid-reliable/ExpensePage.png\" alt=\"Expense tracking screen\"><figcaption>Expenses</figcaption></figure><figure><img src=\"Rapid-reliable/DriverPaymentsPage.png\" alt=\"Driver payments screen\"><figcaption>Driver payments</figcaption></figure></div><p><strong>Repo:</strong> <a href=\"https://github.com/fwebi/Rapid-Reliable\" target=\"_blank\" rel=\"noopener\">View on GitHub</a></p>",
+    "link": ""
+  },
+  {
+    "title": "PTO Tracker System",
+    "date": "2026-02-14",
+    "summary": "A PTO tracking web app with role-based dashboards for HR, managers, and employees, plus leave policy management and request approvals.",
+    "details": "<h3>PTO Tracker System</h3><p>A  web application that streamlines PTO management across HR, manager, and employee roles.</p><ul><li>Role-based dashboards (HR, Manager, Employee)</li><li>Create/manage leave policies</li><li>Submit, approve, and deny PTO requests</li><li>Centralized visibility into balances and statuses</li></ul><div class=\"project-gallery\"><figure><img src=\"PTO/employeedahsboard.png\" alt=\"PTO Tracker Employee Dashboard\"><figcaption>Employee Dashboard</figcaption></figure><figure><img src=\"PTO/managerdashboard.png\" alt=\"Manager dashboard with pending PTO requests\"><figcaption>Manager dashboard</figcaption></figure><figure><img src=\"PTO/HrDashboard.png\" alt=\"HR dashboard for leave policy management\"><figcaption>HR dashboard</figcaption></figure></div><p><strong>Tech:</strong> Tech Stack: HTML/CSS/JS, React, Node, Sqlite)</p><p><strong>Repo:</strong> <a href=\"https://github.com/Nicholas2501/ICS499-Capstone\" target=\"_blank\" rel=\"noopener\">View on GitHub</a></p>",
+    "link": ""
+  },
+  {
+    "title": "Project Alpha — Portfolio Site",
+    "date": "2026-01-20",
+    "summary": "A personal portfolio website built with HTML/CSS/JS featuring project details and a downloadable resume.",
+    "details": "<h3>Project Alpha</h3><p>Full description of the project. Tech: HTML, CSS, JavaScript. Highlights: responsive layout, projects JSON loader, modal for details.</p><p>Role: Designer & Developer. Time: 2 weeks.</p>",
+    "link": ""
+  }
+  
+]

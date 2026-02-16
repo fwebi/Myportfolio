@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Farah Farah — Security Analyst. Portfolio including projects, skills, certifications, and downloadable resume."
+    />
+    <title>Farah Farah — Portfolio</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+
+  <body>
+    <header class="site-header">
+      <div class="container">
+        <h1 class="logo">Farah Farah</h1>
+        <nav class="nav" aria-label="Primary navigation">
+          <ul class="nav-list">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#blog">Blog</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <!-- Profile picture circle (replace profile.jpg in this folder to show your photo) -->
+    <div class="profile-wrap">
+      <div class="profile-circle">
+        <!-- If you place a file named profile.jpg in the PORTFOLIO folder it will appear here -->
+        <img src="ProfilePic/profile.PNG" alt="Farah Farah" onerror="this.style.display='none'" />
+      </div>
+    </div>
+    <main id="main">
+      <!-- HERO -->
+      <section id="home" class="hero">
+        <div class="container">
+          <h2>Hi, I'm Farah</h2>
+          <p>
+        I'm a Security Analyst - Cloud Engineer, Identity & Access Management
+          </p>
+        </div>
+      </section>
+        <!-- ABOUT -->
+      <section id="about" class="about container">
+        <h2>About / Resume</h2>
+        <div class="about-text">
+          <p>
+            I am a results-driven cybersecurity professional with a strong foundation in software engineering and security operations. My background enables me to approach systems from both a developer’s and defender’s perspective, strengthening application and infrastructure security from design to deployment. I bring hands-on experience in identity and access management, risk assessment, and incident response, helping organizations enhance access controls and reduce overall risk.
+
+I am actively advancing toward a Cloud and Identity Security Engineer role, expanding my expertise in Azure IAM, access governance, and secure cloud architecture. Through continued hands-on work with cloud platforms, scripting, and security tooling, I am building the skills needed to design secure, scalable environments. My long-term focus is to operate at the intersection of cloud engineering and cybersecurity, contributing to organizations that prioritize strong identity frameworks and modern security strategies.
+          </p>
+          <p>
+            <a class="download" href="resume.pdf" download>
+              Download Resume (PDF)
+            </a>
+            <span class="sep">·</span>
+            <a
+              class="download"
+              href="resume.pdf"
+              target="_blank"
+              rel="noopener"
+            >
+              Open resume in new tab
+            </a>
+          </p>
+        </div>
+      </section>
+
+      <!-- SKILLS -->
+<!-- SKILLS -->
+<section id="skills" class="skills container">
+  <h2>Skills</h2>
+  <p>What I know and what I’m actively building.</p>
+
+  <div class="skills-grid">
+    <!-- Software & Tools -->
+    <div class="skill-box skill-large">
+      <h3>Software &amp; Tools</h3>
+      <ul>
+        <li>Identity &amp; Access Management (Active Directory, RBAC)</li>
+        <li>Windows &amp; Linux Administration</li>
+        <li>Networking Fundamentals</li>
+        <li>REST APIs &amp; Postman</li>
+        <li>Cloud &amp; SaaS Platforms (Office 365, Salesforce)</li>
+        <li>Databases (SQL, MongoDB)</li>
+        <li>Development Tools (Visual Studio, VS Code)</li>
+        <li>XAML &amp; Desktop Application Development</li>
+      </ul>
+    </div>
+
+    <!-- Programming & Scripting -->
+    <div class="skill-box">
+      <h3>Programming &amp; Scripting</h3>
+      <ul>
+        <li>Python</li>
+        <li>Java</li>
+        <li>C#</li>
+        <li>SQL</li>
+        <li>PowerShell</li>
+      </ul>
+    </div>
+
+    <!-- Soft Skills -->
+    <div class="skill-box">
+      <h3>Soft Skills</h3>
+      <ul>
+        <li>Risk &amp; Security Analysis</li>
+        <li>Access Control &amp; Policy Enforcement</li>
+        <li>Incident Response Support</li>
+        <li>Technical Documentation</li>
+        <li>Cross-Team Communication</li>
+        <li>Problem Solving</li>
+        <li>Continuous Learning</li>
+      </ul>
+    </div>
+  </div>
+
+  <h3>Certifications</h3>
+  <ul class="cert-list">
+    <li>
+      <span>CompTIA Security+</span>
+      <a class="cert-btn" href="https://www.credly.com/badges/0aee2fc2-fa29-48ab-aa7f-a55d5b0b79e7/linked_in_profile" target="_blank" rel="noopener">View</a>
+    </li>
+    <li>
+      <span>Google Cybersecurity Professional Certificate</span>
+      <a class="cert-btn" href="Certs/Coursera.jpeg" target="_blank" rel="noopener">View</a>
+    </li>
+    <li>
+      <span>MITx Cybersecurity for Critical Urban Infrastructure</span>
+      <a class="cert-btn" href="https://mitxonline.mit.edu/certificate/c2a0a8c3-5647-47f1-8126-3ed73ef951ec/" target="_blank" rel="noopener">View</a>
+    </li>
+    <li>
+      <span>Azure Certification (In Progress)</span>
+      <button class="cert-btn disabled" disabled>In progress</button>
+    </li>
+  </ul>
+</section>
+
+
+
+      <!-- BLOG / PROJECTS -->
+      <section id="blog" class="blog container">
+        <h2>Projects &amp; Blog</h2>
+        <p>Latest project is highlighted below. Click "Details" for more.</p>
+
+        <div id="latest" class="latest-project"></div>
+        <div id="projects" class="project-grid"></div>
+      </section>
+    </main>
+
+    <footer class="site-footer container">
+      <p>© <span id="year"></span> Farah Farah</p>
+    </footer>
+
+    <!-- Modal -->
+    <div id="modal" class="modal" aria-hidden="true">
+      <div class="modal-content">
+        <button id="modal-close" class="modal-close">Close</button>
+        <div id="modal-body"></div>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
