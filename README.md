@@ -34,8 +34,3 @@ Edit notes
 - Replace `resume.pdf` with your real PDF (keep the filename or update the link in `index.html`).
 - Edit `projects.json` to add your projects. Each entry supports: `title`, `date`, `summary`, `details` (HTML), and `link`.
 
-Next steps you may want me to do:
-
-- Add individual project pages generated from a folder of markdown files.
-- Add contact form wiring or social links.
-- Improve styling and accessibility (a11y) checks and tests.
