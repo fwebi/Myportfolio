@@ -43,7 +43,7 @@ document.addEventListener('DOMContentLoaded',()=>{
       const latest = projects[0];
       latestContainer.innerHTML = `
         <h3>${latest.title}</h3>
-        <p class="muted">${latest.date} — ${latest.summary}</p>
+        <p class="muted">${latest.date} - ${latest.summary}</p>
         <p><a class="btn" href="#" data-id="0">Details</a> ${latest.link?`<a class='btn' href='${latest.link}' target='_blank' rel='noopener'>View</a>`:''}</p>
       `;
 
@@ -54,10 +54,12 @@ document.addEventListener('DOMContentLoaded',()=>{
         const card = document.createElement('article');
         card.className = 'project-card';
         card.innerHTML = `
-          <h4>${p.title}</h4>
-          <p class="muted">${p.date}</p>
+          <div>
+            <h4>${p.title}</h4>
+            <p class="muted">${p.date}</p>
+          </div>
           <p>${p.summary}</p>
-          <p><a class="btn" href="#" data-id="${idx}">Details</a> ${p.link?`<a class='btn' href='${p.link}' target='_blank' rel='noopener'>Live</a>`:''}</p>
+          <p class="project-actions"><a class="btn" href="#" data-id="${idx}">Details</a> ${p.link?`<a class='btn' href='${p.link}' target='_blank' rel='noopener'>View</a>`:''}</p>
         `;
         card.querySelector('[data-id]').addEventListener('click', (e)=>{ e.preventDefault(); openModal(p.details); });
         projectsContainer.appendChild(card);
