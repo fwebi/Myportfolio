@@ -62,39 +62,20 @@ Use a local server so `projects.json` loads correctly.
 ```bash
 cd /Users/farah/Documents/resumes/PORTFOLIO
 python3 -m http.server 8000
+# then open http://localhost:8000 in your browser
 ```
 
-Then open:
+Option 2 — open directly
 
-```text
-http://localhost:8000
-```
+Open `index.html` in the browser. Note: some browsers block fetch() for local JSON when opened via file://; if projects do not load, run the local server above.
 
-## Editing Content
+Edit notes
 
-- Update project cards and modal content in `projects.json`.
-- Update layout and visual styling in `styles.css`.
-- Update modal behavior and project rendering in `script.js`.
-- Update page structure and section content in `index.html`.
+- Replace `resume.pdf` with your real PDF (keep the filename or update the link in `index.html`).
+- Edit `projects.json` to add your projects. Each entry supports: `title`, `date`, `summary`, `details` (HTML), and `link`.
 
-## GitHub Pages Deployment
+Next steps you may want me to do:
 
-This site can be deployed directly with GitHub Pages because it is fully static.
-
-1. Push the repository to GitHub.
-2. Open the repository settings.
-3. Go to `Pages`.
-4. Set the source to the `main` branch and `/ (root)`.
-5. Wait for the Pages build to finish.
-
-Your site will then be available at:
-
-```text
-https://<your-username>.github.io/<repo-name>/
-```
-
-## Notes
-
-- `projects.json` uses HTML inside the `details` field for modal content.
-- Screenshot paths are relative to the site root, so folder names need to stay in sync with the JSON.
-- If an asset is moved, update its path in `index.html` or `projects.json`.
+- Add individual project pages generated from a folder of markdown files.
+- Add contact form wiring or social links.
+- Improve styling and accessibility (a11y) checks and tests.
