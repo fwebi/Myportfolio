@@ -7,14 +7,14 @@ Static portfolio site for showcasing experience, skills, certifications, resume,
 - HTML
 - CSS
 - JavaScript
-- JSON-driven project content
+- Project data in JavaScript
 
 ## Features
 
 - Personal landing page and about section
 - Skills and certification display
 - Resume download
-- Project gallery driven by `projects.json`
+- Project gallery driven by `projects.js`
 - Modal-based project details
 - Click-to-expand screenshots inside project detail galleries
 
@@ -25,7 +25,7 @@ PORTFOLIO/
 ├── index.html
 ├── styles.css
 ├── script.js
-├── projects.json
+├── projects.js
 ├── resume.pdf
 ├── ProfilePic/
 │   └── profile.PNG
@@ -57,7 +57,7 @@ PORTFOLIO/
 
 ## Run Locally
 
-Use a local server so `projects.json` loads correctly.
+Open `index.html` directly in a browser, or use a local server.
 
 ```bash
 cd /Users/farah/Documents/resumes/PORTFOLIO
@@ -65,14 +65,10 @@ python3 -m http.server 8000
 # then open http://localhost:8000 in your browser
 ```
 
-Option 2 — open directly
-
-Open `index.html` in the browser. Note: some browsers block fetch() for local JSON when opened via file://; if projects do not load, run the local server above.
-
 Edit notes
 
 - Replace `resume.pdf` with your real PDF (keep the filename or update the link in `index.html`).
-- Edit `projects.json` to add your projects. Each entry supports: `title`, `date`, `summary`, `details` (HTML), and `link`.
+- Edit `projects.js` to add projects. Each entry has a `title`, `summary`, and `details` (HTML). Optional fields are `featured`, `date`, and `link`.
 
 Next steps you may want me to do:
 

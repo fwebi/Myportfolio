@@ -1,4 +1,10 @@
-[
+const portfolioProjects = [
+  {
+    "title": "FleetCam | Linux Edge Video Capture & AWS Clip Retrieval",
+    "featured": true,
+    "summary": "Deployed Raspberry Pi video capture nodes across 20 trucks. Each Linux node stores footage locally, while an AWS-based service queues requests and retrieves specific clips when the truck reconnects.",
+    "details": "<p>I built and deployed a Raspberry Pi/Linux camera system across 20 trucks. Because the trucks are not always online, footage stays on the device. An AWS-based service queues footage requests and retrieves only the requested clips when a truck reconnects, without continuously streaming video.</p>"
+  },
   {
     "title": "RRT Management — Rapid Reliable",
     "date": "2026-02-14",
@@ -20,5 +26,4 @@
     "details": "<h3>Project Alpha</h3><p>Full description of the project. Tech: HTML, CSS, JavaScript. Highlights: responsive layout, projects JSON loader, modal for details.</p><p>Role: Designer & Developer. Time: 2 weeks.</p>",
     "link": ""
   }
-  
-]
+];

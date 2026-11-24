@@ -2,71 +2,91 @@ document.addEventListener('DOMContentLoaded',()=>{
   document.getElementById('year').textContent = new Date().getFullYear();
 
   const projectsContainer = document.getElementById('projects');
-  const latestContainer = document.getElementById('latest');
+  const featuredContainer = document.getElementById('featured-projects');
   const modal = document.getElementById('modal');
   const modalBody = document.getElementById('modal-body');
   const modalClose = document.getElementById('modal-close');
 
-  function openModal(html){
-    modalBody.innerHTML = html;
-    modal.setAttribute('aria-hidden','false');
+  function openModal(project){
+    modalBody.innerHTML = project.details;
+    let heading = modalBody.querySelector('h3');
+    if (!heading) {
+      heading = document.createElement('h3');
+      heading.textContent = project.title;
+      modalBody.prepend(heading);
+    }
+    heading.id = 'modal-title';
     wireGalleryZoom();
-  }
-  function closeModal(){
-    modal.setAttribute('aria-hidden','true');
-    modalBody.innerHTML = '';
+    modal.showModal();
+    modal.scrollTop = 0;
   }
 
   function wireGalleryZoom(){
     const galleryFigures = modalBody.querySelectorAll('.project-gallery figure');
-    if(!galleryFigures.length) return;
+    galleryFigures.forEach((figure) => {
+      const image = figure.querySelector('img');
+      if (!image) return;
 
-    galleryFigures.forEach((figure)=>{
-      figure.addEventListener('click', ()=>{
-        const isZoomed = figure.classList.contains('is-zoomed');
-        galleryFigures.forEach(f=>f.classList.remove('is-zoomed'));
-        if(!isZoomed) figure.classList.add('is-zoomed');
+      const button = document.createElement('button');
+      button.type = 'button';
+      button.className = 'gallery-zoom';
+      button.setAttribute('aria-label', `Zoom screenshot: ${image.alt}`);
+      button.setAttribute('aria-pressed', 'false');
+      image.replaceWith(button);
+      button.append(image);
+
+      function setZoom(zoomed) {
+        figure.classList.toggle('is-zoomed', zoomed);
+        button.setAttribute('aria-pressed', String(zoomed));
+      }
+
+      button.addEventListener('click', () => setZoom(!figure.classList.contains('is-zoomed')));
+      button.addEventListener('blur', () => setZoom(false));
+      button.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape' && figure.classList.contains('is-zoomed')) {
+          event.preventDefault();
+          setZoom(false);
+        }
       });
     });
   }
-  modalClose.addEventListener('click',closeModal);
-  modal.addEventListener('click',(e)=>{ if(e.target===modal) closeModal(); });
+  modalClose.addEventListener('click', () => modal.close());
+  modal.addEventListener('close', () => {
+    if (!modal.open) modalBody.replaceChildren();
+  });
+  modal.addEventListener('click', (event) => {
+    if (event.target !== modal) return;
+    const bounds = modal.getBoundingClientRect();
+    if (event.clientX < bounds.left || event.clientX > bounds.right ||
+        event.clientY < bounds.top || event.clientY > bounds.bottom) {
+      modal.close();
+    }
+  });
 
-  // Load projects from JSON
-  fetch('projects.json')
-    .then(r=>r.json())
-    .then(projects=>{
-      if(!projects || !projects.length) return;
-      // assume projects sorted newest first; if not, sort by date
-      projects.sort((a,b)=> new Date(b.date) - new Date(a.date));
+  const featured = portfolioProjects.filter(project => project.featured);
+  const software = portfolioProjects.filter(project => !project.featured);
+  software.sort((first, second) => new Date(second.date) - new Date(first.date));
 
-      const latest = projects[0];
-      latestContainer.innerHTML = `
-        <h3>${latest.title}</h3>
-        <p class="muted">${latest.date} - ${latest.summary}</p>
-        <p><a class="btn" href="#" data-id="0">Details</a> ${latest.link?`<a class='btn' href='${latest.link}' target='_blank' rel='noopener'>View</a>`:''}</p>
-      `;
-
-      latestContainer.querySelector('[data-id]')?.addEventListener('click', (e)=>{ e.preventDefault(); openModal(latest.details); });
-
-      // render rest (including latest) as cards
-      projects.forEach((p, idx)=>{
-        const card = document.createElement('article');
-        card.className = 'project-card';
-        card.innerHTML = `
-          <div>
-            <h4>${p.title}</h4>
-            <p class="muted">${p.date}</p>
-          </div>
-          <p>${p.summary}</p>
-          <p class="project-actions"><a class="btn" href="#" data-id="${idx}">Details</a> ${p.link?`<a class='btn' href='${p.link}' target='_blank' rel='noopener'>View</a>`:''}</p>
-        `;
-        card.querySelector('[data-id]').addEventListener('click', (e)=>{ e.preventDefault(); openModal(p.details); });
-        projectsContainer.appendChild(card);
-      });
-    })
-    .catch(err=>{
-      console.error('Failed to load projects.json',err);
-      document.getElementById('projects').innerHTML = '<p class="muted">No projects available yet.</p>';
+  [...featured, ...software].forEach(project => {
+    const card = document.createElement('article');
+    card.className = 'project-card';
+    card.innerHTML = `
+      <div>
+        <h4>${project.title}</h4>
+        ${project.date ? `<p class="muted">${project.date}</p>` : ''}
+      </div>
+      <p>${project.summary}</p>
+      <p class="project-actions">
+        <button class="btn" type="button" aria-haspopup="dialog">Details</button>
+        ${project.link ? `<a class="btn" href="${project.link}" target="_blank" rel="noopener">View</a>` : ''}
+      </p>
+    `;
+    const details = card.querySelector('button');
+    details.setAttribute('aria-label', `Details: ${project.title}`);
+    details.addEventListener('click', () => {
+      details.focus({ preventScroll: true });
+      openModal(project);
     });
+    (project.featured ? featuredContainer : projectsContainer).appendChild(card);
+  });
 });
